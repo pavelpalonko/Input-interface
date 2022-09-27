@@ -1,7 +1,11 @@
 import React from "react";
 import InputInterface from "./components/InputInterface/InputInterface";
 import style from "./index.module.css"
+import Icon from "./components/Icon/Icon";
 
+import phoneIcon from "./assets/svg/phone.svg"
+import mailIcon from "./assets/svg/mail.svg"
+import userIcon from "./assets/svg/user.svg"
 
 function App() {
 
@@ -14,7 +18,7 @@ function App() {
           id='name-field'
           type="text"
           placeholder='Name'
-          iconType='user'
+          icon={<Icon iconSvg={userIcon}/>}
           valid={true}
         />
 
@@ -23,7 +27,7 @@ function App() {
           id='phone-field'
           type="number"
           placeholder='Phone'
-          iconType='phone'
+          icon={<Icon iconSvg={phoneIcon}/>}
           valid={false}
         />
 
@@ -32,7 +36,7 @@ function App() {
           id='email-field'
           type="text"
           placeholder='Phone'
-          iconType='mail'
+          icon={<Icon iconSvg={mailIcon}/>}
           valid={true}
         />
 

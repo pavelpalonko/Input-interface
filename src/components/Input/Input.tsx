@@ -1,12 +1,11 @@
 import React, { useContext } from "react";
-import Icon from "../Icon/Icon";
 
 import { InputInterfaceContext } from "../InputInterface/InputInterface";
 import Label from "../Label/Label";
 
-const Input = ({ label, iconType, type, valid, ...props }: any) => {
+const Input = ({ label, icon, type, valid, ...props }: any) => {
 
-  const { icons, theme }: any = useContext(InputInterfaceContext)
+  const theme: any = useContext(InputInterfaceContext)
 
   return (
     <div>
@@ -17,8 +16,8 @@ const Input = ({ label, iconType, type, valid, ...props }: any) => {
         className={valid ? theme.valid : theme.notValid}
         {...props}
       />
-
-      <Icon icon={icons[iconType]} />
+      
+      {icon}
     </div>
 
   )
