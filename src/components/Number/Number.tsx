@@ -1,14 +1,18 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { InputInterfaceContext } from "../InputInterface/InputInterface";
 
-const Number = ({ prefix, ...props }: any) => {
+const Number = ({ prefix, id, ...props }: any) => {
 
-  const { id, valid}: any = useContext(InputInterfaceContext)
+  const {idState, setId}: any = useContext(InputInterfaceContext)
+
+  useEffect( () => {
+    if(id)setId(id)
+  },[id, setId])
 
   return (
     <>
       {prefix}
-      <input id={id} type="number" {...props} />
+      <input id={idState} type="number" {...props} />
     </>
 
   )

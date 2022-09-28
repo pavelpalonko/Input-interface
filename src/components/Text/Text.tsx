@@ -1,12 +1,17 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { InputInterfaceContext } from "../InputInterface/InputInterface";
 
-const Text = ({...props}) => {
+const Text = ({id, ...props}: any) => {
 
-  const {id, valid}: any = useContext(InputInterfaceContext)
+  const {idState, setId}: any = useContext(InputInterfaceContext)
+
+  useEffect( () => {
+    if(id)setId(id)
+    
+  },[id, setId])
 
   return (
-    <input id={id} type="text" {...props} />
+    <input id={idState} type="text" {...props} />
   )
 }
 

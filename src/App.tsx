@@ -19,19 +19,20 @@ function App() {
   return (
     <div className={style.wrapp}>
 
-      <InputInterface id='name-field' valid={true}>
+      <InputInterface valid={true}>
         <InputInterface.InputComponent
           icon={<Icon iconSvg={userIcon} />}
           label={<Label
             text='Your Name'
           />}
           input={<Text
+            id='My-Text_Field' // If you do not specify an id, it will be generated
             placeholder='Name'
           />}
         />
       </InputInterface>
 
-      <InputInterface id='phone-field' valid={false}>
+      <InputInterface valid={false}>
         <InputInterface.InputComponent
           icon={<Icon iconSvg={phoneIcon} />}
           label={<Label
@@ -44,7 +45,7 @@ function App() {
         />
       </InputInterface>
 
-      <InputInterface id='mail-field' valid={true}>
+      <InputInterface valid={true}>
         <InputInterface.InputComponent
           icon={<Icon iconSvg={mailIcon} />}
           label={<Label
@@ -56,7 +57,7 @@ function App() {
         />
       </InputInterface>
 
-      <InputInterface id='select'>
+      <InputInterface>
         <InputInterface.InputComponent
           label={<Label
             text='Options'

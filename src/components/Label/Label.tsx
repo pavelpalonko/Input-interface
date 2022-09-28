@@ -3,10 +3,10 @@ import { InputInterfaceContext } from "../InputInterface/InputInterface";
 
 const Label = ({text}: any) => {
 
-  const {id, valid}: any = useContext(InputInterfaceContext)
+  const {idState, valid}: any = useContext(InputInterfaceContext)
 
   return (
-    <label htmlFor={id}>{text}</label>
+    <label htmlFor={idState}>{text}</label>
   )
 }
 
