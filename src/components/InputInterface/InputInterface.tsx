@@ -1,14 +1,14 @@
-import React, { createContext, useCallback, useMemo, useState } from "react";
+import React, { createContext, useCallback, useId, useMemo, useState } from "react";
 import style from "./InputInterface.module.css"
 import InputComponent from "../InputComponet/InputComponent";
 import Select from "../Select/Select";
-import { randId } from "../../utils/utils";
 
 export const InputInterfaceContext = createContext({})
 
 const InputInterface = ({ valid, children }: any) => {
 
-  const [idState, setIdState] = useState(`${children.props.input.type.name}_field_${randId()}`)
+  const id = useId()
+  const [idState, setIdState] = useState(`${children.props.input.type.name}_field_${id}`)
 
   const setId = useCallback((idState: any) => setIdState(idState), [])
 
