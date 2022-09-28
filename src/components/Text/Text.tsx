@@ -1,14 +1,13 @@
 import React, { useContext } from "react";
 import { InputInterfaceContext } from "../InputInterface/InputInterface";
 
-const Label = ({text}: any) => {
+const Text = ({...props}) => {
 
   const {id, valid}: any = useContext(InputInterfaceContext)
 
   return (
-    <label htmlFor={id}>{text}</label>
+    <input id={id} type="text" {...props} />
   )
 }
 
-export default Label
-
+export default Text

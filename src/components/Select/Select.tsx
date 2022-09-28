@@ -1,15 +1,18 @@
-import React from "react";
-import Label from "../Label/Label";
+import React, { useContext } from "react";
+import { InputInterfaceContext } from "../InputInterface/InputInterface";
 
-const Select = ({ id }: any) => {
+const Select = ({ options }: any) => {
+
+  const {id, valid}:any = useContext(InputInterfaceContext)
 
   return (
     <>
-      <Label id={id}/>
       <select id={id}>
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
+        {
+          options.map((val: string) =>
+          <option key={val} value={val}>{val}</option>
+          )
+        }
       </select>
     </>
   )

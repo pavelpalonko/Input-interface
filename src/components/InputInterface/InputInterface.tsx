@@ -1,27 +1,20 @@
 import React, { createContext } from "react";
 import style from "./InputInterface.module.css"
-import Input from "../Input/Input";
+import InputComponent from "../InputComponet/InputComponent";
 import Select from "../Select/Select";
 
 export const InputInterfaceContext = createContext({})
 
-const theme = {
-  valid: style.valid,
-  notValid: style.notValid
-}
-
-const InputInterface = ({ children }: any) => {
+const InputInterface = ({ id, valid, children }: any) => {
 
   return (
-    <InputInterfaceContext.Provider value={theme}>
-      <form className={style.formWrapp}>
-        {children}
-      </form>
+    <InputInterfaceContext.Provider value={{id, valid}}>
+      {children}
     </InputInterfaceContext.Provider>
   )
 }
 
-InputInterface.Input = Input
+InputInterface.InputComponent = InputComponent
 InputInterface.Select = Select
 
 
