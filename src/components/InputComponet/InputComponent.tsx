@@ -1,10 +1,16 @@
-import React, { useContext } from "react";
+import React, {ReactNode, useContext } from "react";
 
 import { InputInterfaceContext } from "../InputInterface/InputInterface";
 
-const Input = ({ label, input, icon }: any) => {
+interface InputProps {
+  label?: ReactNode
+  input: ReactNode
+  icon?: ReactNode
+}
 
-  const theme: any = useContext(InputInterfaceContext)
+const Input = ({ label, input, icon }: InputProps) => {
+
+  const context = useContext(InputInterfaceContext)
 
   return (
     <div >

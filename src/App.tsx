@@ -19,14 +19,13 @@ function App() {
   return (
     <div className={style.wrapp}>
 
-      <InputInterface valid={true}>
+      <InputInterface valid={true} id='My-Text_Field'> {/*  If you do not specify an id, it will be generated */}
         <InputInterface.InputComponent
           icon={<Icon iconSvg={userIcon} />}
           label={<Label
             text='Your Name'
           />}
           input={<Text
-            id='My-Text_Field' // If you do not specify an id, it will be generated
             placeholder='Name'
           />}
         />

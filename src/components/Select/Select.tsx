@@ -1,20 +1,20 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import { InputInterfaceContext } from "../InputInterface/InputInterface";
 
-const Select = ({id, options }: any) => {
+interface SelectProps {
+  options: string[]
+}
 
-  const {idState, setId}: any = useContext(InputInterfaceContext)
+const Select = ({ options }: SelectProps) => {
 
-  useEffect( () => {
-    if(id)setId(id)
-  },[id, setId])
+  const context = useContext(InputInterfaceContext)
 
   return (
     <>
-      <select id={idState}>
+      <select id={context?.idState}>
         {
           options.map((val: string) =>
-          <option key={val} value={val}>{val}</option>
+            <option key={val} value={val}>{val}</option>
           )
         }
       </select>

@@ -1,16 +1,23 @@
-import React, { createContext, useCallback, useId, useMemo, useState } from "react";
-import style from "./InputInterface.module.css"
+import React, { createContext, ReactNode, useCallback, useId, useMemo, useState } from "react";
 import InputComponent from "../InputComponet/InputComponent";
 import Select from "../Select/Select";
+import { ContextState } from "../../models/models"
 
-export const InputInterfaceContext = createContext({})
 
-const InputInterface = ({ valid, children }: any) => {
+interface InputInterfaceProps {
+  id?: string
+  valid?: boolean
+  children: ReactNode
+}
 
-  const id = useId()
-  const [idState, setIdState] = useState(`${children.props.input.type.name}_field_${id}`)
+export const InputInterfaceContext = createContext<ContextState | null>(null)
 
-  const setId = useCallback((idState: any) => setIdState(idState), [])
+const InputInterface = ({ id, valid, children }: InputInterfaceProps) => {
+
+  const autoId = `_field_${useId()}`
+  const [idState, setIdState] = useState(id ? id : autoId)
+
+  const setId = useCallback((idState: string) => setIdState(idState), [])
 
   const value = useMemo(() => {
     return { idState, setId, valid }
