@@ -1,0 +1,8 @@
+.validStyle {
+  margin-top: 20px;
+  box-shadow: 1px 10px 20px rgb(92, 206, 64);
+}
+.notValidStyle {
+  margin-top: 20px;
+  box-shadow: 1px 10px 20px rgb(180, 48, 48);
+}
