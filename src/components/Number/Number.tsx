@@ -2,18 +2,19 @@ import React, { ReactNode, useContext } from "react";
 import { InputInterfaceContext } from "../InputInterface/InputInterface";
 
 interface NumberProps {
+  placeholder: string
   prefix?: ReactNode
-  [propName: string]: any
+  
 }
 
-const Number = ({ prefix, ...props }: NumberProps) => {
+const Number = ({ prefix, placeholder }: NumberProps) => {
 
   const context = useContext(InputInterfaceContext)
 
   return (
     <>
       {prefix}
-      <input id={context?.idState} type="number" {...props} />
+      <input id={context?.idState} type="number" placeholder={placeholder} />
     </>
   )
 }

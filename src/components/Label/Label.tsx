@@ -1,12 +1,16 @@
-import React, { useContext } from "react";
+import React, {ReactNode, useContext } from "react";
 import { InputInterfaceContext } from "../InputInterface/InputInterface";
 
-const Label = ({text}: any) => {
+interface LabelProps {
+  children: ReactNode
+}
 
-  const {idState, valid}: any = useContext(InputInterfaceContext)
+const Label = ({children}: LabelProps) => {
+
+  const context = useContext(InputInterfaceContext)
 
   return (
-    <label htmlFor={idState}>{text}</label>
+    <label htmlFor={context?.idState}>{children}</label>
   )
 }
 

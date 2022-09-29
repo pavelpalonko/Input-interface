@@ -2,15 +2,16 @@ import React, { useContext } from "react";
 import { InputInterfaceContext } from "../InputInterface/InputInterface";
 
 interface TextProps {
-  [propName: string]: any
+  name?: string
+  placeholder?: string
 }
 
-const Text = ({ ...props }: TextProps) => {
+const Text = ({name, placeholder }: TextProps) => {
 
   const context = useContext(InputInterfaceContext)
 
   return (
-    <input id={context?.idState} type="text" {...props} />
+    <input id={context?.idState} type="text" name={name} placeholder={placeholder} />
   )
 }
 

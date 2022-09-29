@@ -1,5 +1,5 @@
 export interface ContextState {
   idState: string
-  setId: Function
+  setIdState: (state: string) => void
   valid?: boolean
 }

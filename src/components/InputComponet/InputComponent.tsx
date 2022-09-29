@@ -1,4 +1,5 @@
 import React, {ReactNode, useContext } from "react";
+import style from "./InputComponent.module.css"
 
 import { InputInterfaceContext } from "../InputInterface/InputInterface";
 
@@ -13,7 +14,7 @@ const Input = ({ label, input, icon }: InputProps) => {
   const context = useContext(InputInterfaceContext)
 
   return (
-    <div >
+    <div className={context?.valid ? style.validStyle : style.notValidStyle}>
       {label}
       <div>
         {input}

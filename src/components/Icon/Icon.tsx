@@ -1,7 +1,11 @@
 import React from "react";
 import style from "./Icon.module.css"
 
-const Icon = ({ iconSvg }: any) => {
+interface IconProps {
+  iconSvg: string
+}
+
+const Icon = ({ iconSvg }: IconProps ) => {
 
   return (
     <img className={style.icon} src={iconSvg}>

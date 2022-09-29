@@ -1,8 +1,7 @@
-import React, { createContext, ReactNode, useCallback, useId, useMemo, useState } from "react";
+import React, { createContext, ReactNode, useId, useState } from "react";
 import InputComponent from "../InputComponet/InputComponent";
 import Select from "../Select/Select";
 import { ContextState } from "../../models/models"
-
 
 interface InputInterfaceProps {
   id?: string
@@ -17,14 +16,10 @@ const InputInterface = ({ id, valid, children }: InputInterfaceProps) => {
   const autoId = `_field_${useId()}`
   const [idState, setIdState] = useState(id ? id : autoId)
 
-  const setId = useCallback((idState: string) => setIdState(idState), [])
-
-  const value = useMemo(() => {
-    return { idState, setId, valid }
-  }, [idState, setId, valid])
+  const [valueContext, setValueContext] = useState({ idState, setIdState, valid })
 
   return (
-    <InputInterfaceContext.Provider value={value}>
+    <InputInterfaceContext.Provider value={valueContext}>
       {children}
     </InputInterfaceContext.Provider>
   )
@@ -32,6 +27,5 @@ const InputInterface = ({ id, valid, children }: InputInterfaceProps) => {
 
 InputInterface.InputComponent = InputComponent
 InputInterface.Select = Select
-
 
 export default InputInterface

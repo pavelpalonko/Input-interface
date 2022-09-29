@@ -18,13 +18,13 @@ function App() {
 
   return (
     <div className={style.wrapp}>
-
       <InputInterface valid={true} id='My-Text_Field'> {/*  If you do not specify an id, it will be generated */}
         <InputInterface.InputComponent
           icon={<Icon iconSvg={userIcon} />}
-          label={<Label
-            text='Your Name'
-          />}
+          label={
+            <Label>
+              Your Name
+            </Label>}
           input={<Text
             placeholder='Name'
           />}
@@ -34,9 +34,10 @@ function App() {
       <InputInterface valid={false}>
         <InputInterface.InputComponent
           icon={<Icon iconSvg={phoneIcon} />}
-          label={<Label
-            text='Your Phone'
-          />}
+          label={
+            <Label>
+              Your Phone
+            </Label>}
           input={<Number
             placeholder='Phone'
             prefix='+38'
@@ -47,10 +48,12 @@ function App() {
       <InputInterface valid={true}>
         <InputInterface.InputComponent
           icon={<Icon iconSvg={mailIcon} />}
-          label={<Label
-            text='Your Mail'
-          />}
+          label={
+            <Label>
+              Your Mail
+            </Label>}
           input={<Text
+            name="text"
             placeholder='Mail'
           />}
         />
@@ -58,9 +61,10 @@ function App() {
 
       <InputInterface>
         <InputInterface.InputComponent
-          label={<Label
-            text='Options'
-          />}
+          label={
+            <Label>
+              Options
+            </Label>}
           input={<Select
             options={options}
           />}
